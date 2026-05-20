@@ -13,13 +13,18 @@ def get_data(place, forecast_days=None, kind=None):
 
     nr_values = 8 * forecast_days
     filtered_data = filtered_data[:nr_values]
-    if kind=="Temperatura":
-        filtered_data = [dict["main"]["temp"] for dict in filtered_data]
-    elif kind=="Cielo":
-        filtered_data = [dict["weather"][0]["main"] for dict in filtered_data]
+
+    # para optimizar el código se pasa este bloque a main.py
+    # if kind=="Temperatura":
+    #     filtered_data = [dict["main"]["temp"] for dict in filtered_data]
+    # elif kind=="Cielo":
+    #     filtered_data = [dict["weather"][0]["main"] for dict in filtered_data]
 
     return filtered_data
 
 
 if __name__=="__main__":
-    print(get_data(place="Bargas", forecast_days=3, kind="Temperatura"))
+    # ANTES
+    # print(get_data(place="Bargas", forecast_days=3, kind="Temperatura"))
+
+    print(get_data(place="Bargas", forecast_days=3))
